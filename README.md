@@ -7,8 +7,16 @@ Jelen kódbázis egy MPLAB X IDE projektet alkot, amely a Microchip gyártónak 
 
 ## Felépítés
 
+Ez a szakasz tárgyalja a pantográf, és a virtuális tér működtetése szempontjából releváns programfájlokat.
+
 ### Főprogram
+
+A `main.c` tartalmazza a kezdeti konfigurációt, definiálja a használt interruptokat, felelős az enkóderek lekérdezéséért, a mechanikai számítások futtatásáért, illetve a motorok aktivizálásáért. Az enkóderek és a motorok kezelése közvetlenül itt található meg.
 
 ### Mechanikai szimuláció
 
+A `mechanics.h` és a `mechanics.c` fájlok tartalmazzák a mechanikai szimulációhoz szükséges változókat, segédváltozókat, illetve függvényeket. Kitüntetett szerepet kap a `mechanics` struktúra, mely a virtuális térben mozgó objektumok mechanikai tulajdonságait, illetve állapotváltozóinak aktuális értékeit tárolja. Jelenleg az end-effectorhoz, és a virtuális golyóhoz tartozik egy-egy ilyen struktúra-objektum.
+
 ### Soros kommunikáció
+
+A soros kommunikáció során küldendő adatok formátuma és módja az `app_device_cdc_basis.c` fájlban van meghatározva.
